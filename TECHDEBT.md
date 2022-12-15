@@ -1,0 +1,1 @@
+- Board creating variable, so we can create larger grids
