@@ -1,5 +1,5 @@
-function templateFunction(x) {
-  return x / 2;
+function createGameBoard() {
+  return Array.from({ length: 3 }, () => Array.from({ length: 3 }, () => null));
 }
 
-module.exports = templateFunction;
+module.exports = { createGameBoard };

@@ -1,7 +1,18 @@
-const templateFunction = require("../src/template");
+const { createGameBoard } = require("../src/template");
 
-describe("TemplateFunction should return half of the provided", () => {
-  it("2 -> 1 ", () => {
-    expect(templateFunction(2)).toEqual(1);
+describe("This is a test suite for a minesweeper game", () => {
+  describe("We want to be able to generate an empty game board.\nThe board:", () => {
+    const board = createGameBoard();
+    it("is 3 high", () => {
+      expect(board.length).toEqual(3);
+    });
+    it("is 3 wide", () => {
+      expect(board.every((row) => row.length === 3)).toEqual(true);
+    });
+    it("is filled with empty spaces", () => {
+      expect(
+        board.every((row) => row.every((space) => space === null))
+      ).toEqual(true);
+    });
   });
 });
