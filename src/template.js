@@ -12,12 +12,15 @@ function formatGameBoard() {
 +-+-+-+`;
 }
 
-function markGameBoard() {
-  return [
-    ["X", null, null],
-    [null, null, null],
-    [null, null, null],
-  ];
+function openSquare(board, bombLocations, clickLocation) {
+  const newBoard = JSON.parse(JSON.stringify(board));
+  const [clickX, clickY] = clickLocation;
+
+  if (
+    bombLocations.some(([bombX, bombY]) => bombX === clickX && bombY === clickY)
+  )
+    newBoard[clickY][clickX] = "X";
+  return newBoard;
 }
 
-module.exports = { createGameBoard, formatGameBoard, markGameBoard };
+module.exports = { createGameBoard, formatGameBoard, openSquare };
