@@ -12,4 +12,12 @@ function formatGameBoard() {
 +-+-+-+`;
 }
 
-module.exports = { createGameBoard, formatGameBoard };
+function markGameBoard() {
+  return [
+    ["X", null, null],
+    [null, null, null],
+    [null, null, null],
+  ];
+}
+
+module.exports = { createGameBoard, formatGameBoard, markGameBoard };
