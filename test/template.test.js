@@ -3,6 +3,7 @@ const {
   formatGameBoard,
   openSquare,
   isGameOver,
+  calculateBombsAround,
 } = require("../src/template");
 
 describe("This is a test suite for a minesweeper game", () => {
@@ -51,7 +52,7 @@ describe("This is a test suite for a minesweeper game", () => {
 +-+-+-+`);
     });
   });
-  describe("We want to be able to detect clicking on a board, and we want to fail the game when that happens.", () => {
+  describe("We want to be able to detect clicking a bomb on a board, and we want to fail the game when that happens.", () => {
     describe("We want to mark the square with X when:", () => {
       it("the top left square contains a bomb and you click on it", () => {
         const clickLocation = [0, 0];
@@ -118,6 +119,30 @@ describe("This is a test suite for a minesweeper game", () => {
       it("contains an X in the bottom right", () => {
         const bottomRightX = openSquare(emptyBoard, [[2, 2]], [2, 2]);
         expect(isGameOver(bottomRightX)).toEqual(true);
+      });
+    });
+    describe(`We want to be able to calculate how many bombs are around a given square.
+\tThe board
+\t+-+-+-+
+\t|X|X| |
+\t+-+-+-+
+\t| |X| |
+\t+-+-+-+
+\t| | | |
+\t+-+-+-+`, () => {
+      const bombs = [
+        [0, 0],
+        [1, 0],
+        [1, 1],
+      ];
+      it("has 1 bomb around the bottom middle", () => {
+        expect(calculateBombsAround(bombs, [2, 2])).toEqual(1);
+      });
+      it("has 2 bombs around the middle right ", () => {
+        expect(calculateBombsAround(bombs, [2, 1])).toEqual(2);
+      });
+      it("has 3 bombs around the middle left", () => {
+        expect(calculateBombsAround(bombs, [0, 1])).toEqual(3);
       });
     });
   });
