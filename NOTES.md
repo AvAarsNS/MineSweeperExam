@@ -29,4 +29,29 @@
 - Board with X on (0,0), (0,0) is X
 - Board with X on (2,1), (2,1) is X
 
-### 🍅 2: Continue and Finish with UAT 2
+## 🍅 2: Continue and Finish with UAT 2
+
+### When clicking on a bomb, mark it with X
+- Bomb on (0,0), click on (0,0), mark (0,0) with X ✔
+- Bomb on (0,1), click on (0,1), mark (0,1) with X ✔
+- Bomb on (1,1), click on (1,1), mark (1,1) with X ✔
+- Bombs on (0,0) and (2,2), click on (2,2), mark (2,2) with X ✔
+- Bomb on (2,2), click on (0,0), nothing marked ✔
+
+## 🍅 3: Continue UAT 2 and maybe even finish it ;)
+
+### Detect if you have clicked a bomb
+- No X in the grid, not game over ✔
+- (0,0) marked with X, game over ✔
+- (2,2) marked with X, game over ✔
+
+### Format the board to be able to see the X
+- Board with X on (0,0), (0,0) is X ✔
+- Board with X on (2,1), (2,1) is X ✔
+
+## UAT 3: Click on a square and get the number of bombs around
+- Empty board, click on (1,1): get a 0
+- Board with bombs on (0,0), (1,0) and (1,1)
+- Click on (2,0), get a 1
+- Click on (2,1), get a 2
+- Click on (0,1), get a 3
